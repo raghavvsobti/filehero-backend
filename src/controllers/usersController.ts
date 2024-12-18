@@ -23,7 +23,6 @@ export const getUser = async (req: GetUserRequest, res: Response): Promise<void>
     }
 };
 
-
 // Get all users
 export const getUsers = async (_req: Request, res: Response) => {
     try {

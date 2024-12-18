@@ -18,10 +18,10 @@ model User {
 }
 
 model FileMaster {
-  id           String  @id @default(auto()) @map("_id") @db.ObjectId
-  url          String
-  userId       String
-  taggedUserId String?
-  views        Int     @default(0)
-  order        Int     @default(-1)
+  id     String @id @default(auto()) @map("_id") @db.ObjectId
+  url    String
+  userId String
+  tag    String @unique
+  views  Int    @default(0)
+  order  Int    @default(-1)
 }

@@ -54,8 +54,6 @@ export const loginUser = async (req: LoginRequest, res: Response): Promise<void>
             return;
         }
 
-
-
         // Comparing passwords
         const isMatch = await bcrypt.compare(password, user.password);
         if (!isMatch) {
@@ -67,7 +65,6 @@ export const loginUser = async (req: LoginRequest, res: Response): Promise<void>
         const token = jwt.sign({ user }, process.env.JWT_SECRET!, {
             expiresIn: '1h',
         });
-
 
         // sending token so can be stored in session or local storage on client side
         res.status(200).json({ token, user });
