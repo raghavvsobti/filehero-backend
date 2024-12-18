@@ -8,14 +8,13 @@ generator client {
 }
 
 model User {
-  id           String      @id @default(auto()) @map("_id") @db.ObjectId
+  id           String   @id @default(auto()) @map("_id") @db.ObjectId
   name         String
-  email        String      @unique
+  email        String   @unique
   password     String
-  createdAt    DateTime    @default(now())
-  updatedAt    DateTime    @updatedAt
-  FileMaster   FileMaster? @relation(fields: [fileMasterId], references: [id])
-  fileMasterId String?     @db.ObjectId
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+  fileMasterId String?  @db.ObjectId
 }
 
 model FileMaster {
@@ -25,5 +24,4 @@ model FileMaster {
   taggedUserId String?
   views        Int     @default(0)
   order        Int     @default(-1)
-  User         User[]
 }
